@@ -1,0 +1,143 @@
+/* 全域與導覽列設定 */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #666;
+}
+
+/* 上方文字區塊 - 縮小與下方日記欄的間距 */
+.diary-container {
+    max-width: 1000px;
+    margin: 40px auto 10px auto; /* 最後一個值 10px 縮小了間距 */
+    padding: 20px;
+    line-height: 1.8;
+}
+
+.diary-title {
+    text-align: center;
+    letter-spacing: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.diary-columns {
+    display: flex;
+    gap: 40px;
+}
+
+.column { flex: 1; }
+.column h3 { text-align: center; margin-bottom: 20px; color: #555; }
+.column ul { list-style: none; padding: 0; text-align: center; }
+.column li { margin-bottom: 12px; font-size: 1rem; color: #444; }
+
+/* 日記展示區整體容器 */
+.page-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    padding-top: 0; /* 再次確保與上方緊貼 */
+}
+
+/* 擴大後的組合容器 */
+.diary-layout {
+    display: flex;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    width: 98%;
+    max-width: 1300px; /* 從 1000px 增加到 1300px，拉長整體寬度 */
+    height: 75vh;
+}
+
+/* 左側日期欄 */
+.date-sidebar {
+    width: 160px;
+    flex-shrink: 0;
+    border-right: 1px solid #eee;
+    background: #fafafa;
+}
+
+.date-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.date-item {
+    padding: 18px 10px;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.2s;
+    font-size: 1rem;
+    color: #888;
+}
+
+.date-item.active {
+    background: #fff;
+    color: #333;
+    font-weight: bold;
+    border-left: 5px solid #333;
+}
+
+/* 右側內容區 - 增加長度與顯示空間 */
+.content-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 50px 80px; /* 增加左右 padding 讓文字視覺空間更寬廣 */
+}
+
+.diary-card h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+}
+
+.diary-image-wrapper img {
+    width: 100%;
+    max-height: 600px; /* 容許更高的照片 */
+    object-fit: contain; /* 確保 iPhone 直式照片不會被裁掉 */
+    background: #f9f9f9;
+    border-radius: 10px;
+    margin-bottom: 35px;
+}
+
+.diary-body {
+    line-height: 2.2; /* 增加行距方便閱讀 */
+    font-size: 1.25rem; /* 字體微調大 */
+    color: #333;
+    white-space: pre-wrap; /* 保留 Google Sheets 的換行 */
+}
+
+/* 捲軸美化 */
+.date-menu::-webkit-scrollbar { width: 4px; }
+.date-menu::-webkit-scrollbar-thumb { background: #ccc; }
