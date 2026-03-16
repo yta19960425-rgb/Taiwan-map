@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淨島碎片 - 拾荒紀錄</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <link rel="stylesheet" href="navbar.css">
+    <style>
+        /* --- CSS 樣式區 --- */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f0;
+            font-family: "Microsoft JhengHei", sans-serif;
+            color: #333;
+        }
+
+        
+
+       
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* 數據看板 */
+        .stats-board {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #6f9c76;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* 圖表區塊 */
+        .charts-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .chart-box {
+            flex: 1;
+            min-width: 320px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .chart-box h3 {
+            text-align: center;
+            color: #6f9c76;
+            margin-bottom: 20px;
+        }
+
+        /* 紀錄卡片 */
+        .cleanup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .cleanup-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .cleanup-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-date {
+            font-size: 0.85rem;
+            color: #6f9c76;
+            font-weight: bold;
+        }
+
+        .card-location {
+            font-size: 1.1rem;
+            margin: 8px 0;
+            font-weight: bold;
+        }
+
+        .loot-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+       
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-logo">徒步日記</div>
+    <ul class="nav-links">
+        <li><a href="index.html">進度地圖</a></li>
+        <li><a href="walking2.html">徒步日記</a></li>
+        <li><a href="clean.html">淨島</a></li>
+        <li><a href="map.html">在地探索</a></li> 
+        <li><a href="about.html">個人介紹</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <header class="hero-section">
+        <h3>路上的垃圾，我帶走囉！</h3>
+        <p>每一件被撿起的垃圾，都是一片修復台灣風景的碎片。</p>
+        
+        <div class="stats-board">
+            <div class="stat-item">
+                <span class="stat-value" id="total-count">0</span>
+                <span class="stat-label">已收集碎片</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value" id="weight-count">0</span>
+                <span class="stat-label">估計重量 (g)</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value" id="day-count">0</span>
+                <span class="stat-label">戰鬥天數</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="charts-container">
+        <div class="chart-box">
+            <h3>碎片種類比例</h3>
+            <canvas id="typeChart"></canvas>
+        </div>
+        <div class="chart-box">
+            <h3>修復進度 (重量趨勢)</h3>
+            <canvas id="trendChart"></canvas>
+        </div>
+    </div>
+
+    <main class="cleanup-grid" id="cleanup-log">
+        </main>
+</div>
+
+<script>
+/* --- 完整 JavaScript 邏輯區 (JSON 讀取版) --- */
+
+let cleanupData = [];
+
+// 1. 初始化頁面：從 JSON 檔案抓取資料
+async function initPage() {
+    try {
+        // 抓取同資料夾下的 cleanup.json
+        const response = await fetch('cleanup.json?t=' + new Date().getTime());
+        
+        // 如果讀取失敗 (例如檔案不存在)，拋出錯誤
+        if (!response.ok) throw new Error("找不到 cleanup.json 檔案");
+        
+        cleanupData = await response.json();
+        
+        // 確認有資料後，開始渲染畫面
+        renderStats();
+        renderCharts();
+        renderCards();
+    } catch (error) {
+        console.error("無法讀取 JSON 資料:", error);
+        document.getElementById('cleanup-log').innerHTML = 
+            `<p style="text-align:center; color:red;">暫時無法載入紀錄，請檢查 cleanup.json 檔案是否存在並格式正確。</p>`;
+    }
+}
+
+// 2. 更新頂部數據看板
+function renderStats() {
+    let totalItems = 0;
+    let totalWeight = 0;
+    cleanupData.forEach(entry => {
+        const numbers = entry.items.match(/\d+/g);
+        if (numbers) numbers.forEach(n => totalItems += parseInt(n));
+        totalWeight += entry.weight;
+    });
+    document.getElementById('total-count').innerText = totalItems.toLocaleString();
+    document.getElementById('weight-count').innerText = totalWeight.toLocaleString();
+    document.getElementById('day-count').innerText = cleanupData.length;
+}
+
+// 3. 繪製圖形化圖表
+    function renderCharts() {
+    // 檢查是否有資料
+    if (!cleanupData || cleanupData.length === 0) return;
+
+    // --- 1. 處理圓餅圖數據 (精確匹配版) ---
+    const typeTotals = { "菸蒂": 0, "塑膠": 0, "紙類": 0, "金屬": 0, "其他": 0 };
+    
+    cleanupData.forEach(d => {
+        if (!d.items) return;
+        const parts = d.items.split(/[,，、]/);
+        parts.forEach(part => {
+            let matched = false;
+            for (let type in typeTotals) {
+                if (part.includes(type)) {
+                    const numMatch = part.match(/\d+/);
+                    if (numMatch) {
+                        typeTotals[type] += parseInt(numMatch[0]);
+                        matched = true;
+                        break;
+                    }
+                }
+            }
+            if (!matched && part.trim() !== "") {
+                const otherNum = part.match(/\d+/);
+                if (otherNum) typeTotals["其他"] += parseInt(otherNum[0]);
+            }
+        });
+    });
+
+    // 渲染圓餅圖
+    const typeCtx = document.getElementById('typeChart').getContext('2d');
+    // 如果已有圖表則銷毀重畫 (避免重疊)
+    if (window.myPieChart) window.myPieChart.destroy();
+    window.myPieChart = new Chart(typeCtx, {
+        type: 'doughnut',
+        data: {
+            labels: Object.keys(typeTotals),
+            datasets: [{
+                data: Object.values(typeTotals),
+                backgroundColor: ['#ffcc80', '#81c784', '#9575cd', '#4fc3f7', '#d1d1d1'],
+                borderWidth: 2
+            }]
+        },
+        options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+    });
+
+
+    // --- 2. 處理折線圖數據 (合併同日期重量版) ---
+    const weightMap = {};
+    cleanupData.forEach(d => {
+        const dateKey = d.date.split('-').slice(1).join('/'); // 格式化為 04/11
+        const weightValue = parseInt(d.weight) || 0;
+        if (weightMap[dateKey]) {
+            weightMap[dateKey] += weightValue;
+        } else {
+            weightMap[dateKey] = weightValue;
+        }
+    });
+
+    const sortedDates = Object.keys(weightMap).sort();
+    const sortedWeights = sortedDates.map(date => weightMap[date]);
+
+    // 渲染折線圖
+    const trendCtx = document.getElementById('trendChart').getContext('2d');
+    if (window.myLineChart) window.myLineChart.destroy();
+    window.myLineChart = new Chart(trendCtx, {
+        type: 'line',
+        data: {
+            labels: sortedDates,
+            datasets: [{
+                label: '每日總重量 (g)',
+                data: sortedWeights,
+                borderColor: '#6f9c76',
+                backgroundColor: 'rgba(111, 156, 118, 0.1)',
+                fill: true,
+                tension: 0.3,
+                pointRadius: 5,
+                pointBackgroundColor: '#6f9c76'
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: true, title: { display: true, text: '重量 (g)' } },
+                x: { title: { display: true, text: '日期' } }
+            }
+        }
+    });
+}      
+
+    
+
+// 4. 生成紀錄卡片
+function renderCards() {
+    const logContainer = document.getElementById('cleanup-log');
+    logContainer.innerHTML = '';
+    // 讓最新的紀錄排在最前面
+    [...cleanupData].reverse().forEach(entry => {
+        const card = document.createElement('div');
+        card.className = 'cleanup-card';
+        const tagsHtml = entry.items.split(/[,，、]/).map(t => `<span class="tag">${t.trim()}</span>`).join('');
+        card.innerHTML = `
+            <img src="${entry.img}" class="card-img" alt="撿拾照片" onerror="this.src='https://via.placeholder.com/400x300?text=No+Photo'">
+            <div class="card-content">
+                <div class="card-date">${entry.date}</div>
+                <div class="card-location">📍 ${entry.location}</div>
+                <div class="loot-tags">${tagsHtml}</div>
+            </div>`;
+        logContainer.appendChild(card);
+    });
+}
+
+// 執行初始化
+window.onload = initPage;
+
+</script>
+
+</body>
+</html>

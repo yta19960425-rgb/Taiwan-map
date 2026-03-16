@@ -5,20 +5,7 @@ body {
     font-family: "Microsoft JhengHei", sans-serif;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background: #fff;
-    border-bottom: 1px solid #eee;
-}
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-}
 
 .diary-container {
     max-width: 1000px;
