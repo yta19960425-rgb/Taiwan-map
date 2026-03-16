@@ -39,7 +39,6 @@
 .nav-links a:hover {
     color: #6f9c76; /* 滑鼠移上去變成地圖的綠色 */
 }
-
 /* 針對手機端的簡易調整 */
 @media screen and (max-width: 768px) {
     .nav-links {
