@@ -1,0 +1,98 @@
+<!-- 美食、景點、特色、臺製好物 -->
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>徒步發現 - 台灣在地探索</title>
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/discovery.css">
+   
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-logo">徒步日記</div>
+    <ul class="nav-links">
+        <li><a href="index.html">嘿～</a></li>
+        <li><a href="map.html">足跡</a></li>
+        <li><a href="diary.html">日記</a></li>
+        <li><a href="clean.html">淨島</a></li>
+        <li><a href="blog.html">發現</a></li>
+        <li><a href="discovery.html" class="active">探索</a></li> 
+        <li><a href="about.html">介紹</a></li>
+    </ul>
+    </nav>
+
+<div class="header-section">
+    <h1>在地探索</h1>
+    <div class="filter-group">
+        <button class="filter-btn active" onclick="filterData('food', this)">臺灣美食</button>
+        <button class="filter-btn" onclick="filterData('spots', this)">📸 景點</button>
+        <button class="filter-btn" onclick="filterData('features', this)">✨ 特色</button>
+    </div>
+    <p id="current-label">目前正在探索：在地美食</p>
+</div>
+
+
+
+<div class="discovery-grid" id="main-grid">
+    </div>
+
+<script>
+    // 1. 建立各縣市資料庫
+    const counties = [
+        { id: "Taipei", name: "台北市", food: "牛肉麵、小籠包", spots: "台北101、象山夜景", features: "繁華且快速的城市節奏", img: "https://images.unsplash.com/photo-1584467541268-b040f83be3fd?q=80&w=400" },
+        { id: "Taichung", name: "台中市", food: "太陽餅、麻辣火鍋", spots: "歌劇院、高美濕地", features: "寬廣的大道與藝術氣息", img: "https://images.unsplash.com/photo-1590710668615-586196a60029?q=80&w=400" },
+        { id: "Changhua", name: "彰化縣", food: "肉圓、爌肉飯", spots: "八卦山大佛、扇形車庫", features: "濃厚的傳統與古樸人情", img: "https://images.unsplash.com/photo-1610450846660-f92592f7f98d?q=80&w=400" },
+        { id: "Tainan", name: "台南市", food: "牛肉湯、鱔魚意麵", spots: "安平古堡、神農街", features: "隨處可見的古蹟與甜味回憶", img: "https://images.unsplash.com/photo-1596401057633-5310517f4d4d?q=80&w=400" },
+        { id: "Kaohsiung", name: "高雄市", food: "旗津海鮮、羊肉爐", spots: "駁二、西子灣夕陽", features: "港都的熱情與寬闊港灣", img: "https://images.unsplash.com/photo-1571408660341-28e4618e404b?q=80&w=400" },
+        { id: "Hualien", name: "花蓮縣", food: "公正包子、麻糬", spots: "太魯閣、七星潭", features: "大自然的山海震撼", img: "https://images.unsplash.com/photo-1620853509204-58950d992144?q=80&w=400" }
+    ];
+
+    let currentType = 'food';
+
+    // 2. 渲染卡片函式
+    function renderCards() {
+        const grid = document.getElementById('main-grid');
+        grid.innerHTML = '';
+
+        counties.forEach(county => {
+            const card = document.createElement('div');
+            card.className = 'polaroid-card';
+            
+            const labels = { food: '在地美食', spots: '熱門景點', features: '縣市特色' };
+            
+            card.innerHTML = `
+                <div class="card-img" style="background-image: url('${county.img}')"></div>
+                <div class="card-caption">${county.name}</div>
+                <div class="card-overlay">
+                    <div class="overlay-title">${labels[currentType]}</div>
+                    <div class="overlay-text">${county[currentType]}</div>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    // 3. 分類切換函式
+    function filterData(type, btn) {
+        currentType = type;
+        
+        // 更新按鈕樣式
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // 更新文字標籤
+        const labels = { food: '在地美食', spots: '熱門景點', features: '縣市特色' };
+        document.getElementById('current-label').innerText = `目前正在探索：${labels[type]}`;
+
+        renderCards();
+    }
+
+    // 初始執行
+    renderCards();
+</script>
+
+</body>
+</html>

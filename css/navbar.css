@@ -55,3 +55,30 @@
         width: 60%;
     }
 }
+/* --- 導覽列高亮效果 --- */
+.nav-links a:hover {
+    color: #6f9c76 !important; /* 懸停時轉為主題綠 */
+    transition: 0.3s;
+}
+
+/* 當前頁面標示 */
+.nav-links a.active {
+    color: #6f9c76 !important;
+    border-bottom: 2px solid #6f9c76;
+    padding-bottom: 5px;
+}
+
+/* 針對移動裝置的微調 */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+    .nav-links {
+        gap: 15px !important;
+        margin-top: 10px !important;
+    }
+    .nav-links a {
+        font-size: 14px !important;
+    }
+}

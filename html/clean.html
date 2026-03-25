@@ -1,0 +1,66 @@
+<!-- 每日撿垃圾紀錄 -->
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淨島碎片 - 拾荒紀錄</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/clean.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-logo">徒步日記</div>
+    <ul class="nav-links">
+        <li><a href="index.html">嘿～</a></li>
+        <li><a href="map.html">足跡</a></li>
+        <li><a href="diary.html">日記</a></li>
+        <li><a href="clean.html" class="active">淨島</a></li>
+        <li><a href="blog.html">發現</a></li>
+        <li><a href="discovery.html">探索</a></li> 
+        <li><a href="about.html">介紹</a></li>
+    </ul>
+    </nav>
+
+<div class="container">
+    <header class="hero-section">
+        <h3>路上的垃圾，我帶走囉！</h3>
+        <p>每一件被撿起的垃圾，都是一片修復台灣風景的碎片。</p>
+        
+        <div class="stats-board">
+            <div class="stat-item">
+                <span class="stat-value" id="total-count">0</span>
+                <span class="stat-label">已收集碎片</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value" id="weight-count">0</span>
+                <span class="stat-label">估計重量 (g)</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value" id="day-count">0</span>
+                <span class="stat-label">戰鬥天數</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="charts-container">
+        <div class="chart-box">
+            <h3>碎片種類比例</h3>
+            <canvas id="typeChart"></canvas>
+        </div>
+        <div class="chart-box">
+            <h3>修復進度 (重量趨勢)</h3>
+            <canvas id="trendChart"></canvas>
+        </div>
+    </div>
+
+    <main class="cleanup-grid" id="cleanup-log">
+        </main>
+</div>
+
+<script src="../js/clean.js"></script>
+
+</body>
+</html>

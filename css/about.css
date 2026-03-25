@@ -1,0 +1,116 @@
+/* 整體背景與字體 */
+        body {
+            background-color: #f9f8f4; /* 淡淡的米色，有紙張感 */
+            font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+            margin: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 80px auto 40px; /* 留出導覽列空間 */
+            padding: 40px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        /* 上方自介區：2:1 佈局 */
+        .intro-section {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .intro-text {
+            flex: 2; /* 文字佔 2 */
+        }
+
+        .intro-text h1 {
+            color: #2d5a27; /* 深綠色，符合徒步感 */
+            margin-bottom: 20px;
+        }
+
+        .intro-text p {
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .intro-image {
+            flex: 1; /* 照片佔 1 */
+            text-align: center;
+        }
+
+        .intro-image img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 15px;
+            border: 8px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: rotate(2deg); /* 微微傾斜像拍立得 */
+            transition: transform 0.3s;
+        }
+
+        .intro-image img:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        /* 下方挑戰區：四個圈圈 */
+        .challenges-header {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+            color: #666;
+            border-top: 1px solid #eee;
+            padding-top: 30px;
+        }
+
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .challenge-card {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #e8f5e9;
+            border: 2px solid #a5d6a7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 24px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .challenge-card:hover .circle {
+            background-color: #2d5a27;
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(45, 90, 39, 0.2);
+        }
+
+        .challenge-card p {
+            font-size: 14px;
+            margin: 0;
+            color: #444;
+            font-weight: 500;
+        }
+
+        /* 響應式：手機版變單欄 */
+        @media (max-width: 768px) {
+            .intro-section {
+                flex-direction: column-reverse;
+            }
+            .challenges-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
