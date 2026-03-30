@@ -1,0 +1,32 @@
+[
+  {
+    "id": 100,
+    "title": "徒步淨島：我在彰濱海岸撿到的海廢玻璃",
+    "category": "eco",
+    "categoryName": "環保",
+    "date": "2026-03-25",
+    "desc": "今天沿著海岸線走，一邊健行一邊做環保。撿到了許多被海浪沖刷圓潤的彩色玻璃...",
+    "img": "https://picsum.photos/400/300?random=100",
+    "link": "post_detail.html?id=100"
+  },
+  {
+    "id": 99,
+    "title": "鹿港古鎮巡禮：摸乳巷與紅磚古厝",
+    "category": "history",
+    "categoryName": "歷史",
+    "date": "2026-03-20",
+    "desc": "踩在鹿港老街的紅磚上，彷彿走入歷史隧道。每一面斑駁的牆壁都有講不完的故事...",
+    "img": "https://picsum.photos/400/300?random=99",
+    "link": "post_detail.html?id=99"
+  },
+  {
+    "id": 98,
+    "title": "高美濕地夕陽：木棧道上的視覺饗宴",
+    "category": "sightseeing",
+    "categoryName": "觀光",
+    "date": "2026-03-15",
+    "desc": "走到台中的時候剛好趕上日落。無數風車在海風中轉動，搭配晚霞非常震撼...",
+    "img": "https://picsum.photos/400/300?random=98",
+    "link": "post_detail.html?id=98"
+  }
+]

@@ -1,6 +1,5 @@
 const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS3WJavixxzV2eQU6IfzMIOGniW5lUU8pbCkRiHnDobo671g3McNUkuurNCoP3yBQGTaju_iYy7uR-K/pub?output=csv'; 
 
-// 設定你的本地照片路徑
 const defaultBgImg = "../pic/island.png"; 
 
 const startDate = new Date("2026-04-11");
@@ -24,9 +23,8 @@ for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
 }
 
 function loadData() {
-    // 檢查 Papa 是否存在
     if (typeof Papa === 'undefined') {
-        console.error("找不到 PapaParse，請檢查 HTML 是否已引入腳本。");
+        console.error("找不到 PapaParse");
         return;
     }
 
@@ -38,7 +36,6 @@ function loadData() {
             results.data.forEach(row => {
                 if (row.date) diaryData[row.date.trim()] = row;
             });
-            // 預設點擊第一個日期
             const firstItem = document.querySelector('.date-item');
             if (firstItem) firstItem.click();
         }
@@ -58,7 +55,6 @@ function displayContent(date) {
         imgWrapper.style.backgroundImage = "none";
         textEl.textContent = data.text || "這天沒有文字紀錄。";
     } else {
-        // 沒內容時顯示本地背景圖
         imgEl.style.display = "none";
         imgWrapper.style.backgroundImage = `url('${defaultBgImg}')`;
         textEl.textContent = data ? data.text : "尚未更新日記內容。";

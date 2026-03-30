@@ -1,65 +1,116 @@
-<!-- 自介、環島挑戰 -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>關於我</title>
+    <title>關於我 - 徒步日記</title>
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/about.css">
 </head>
-<body>
-    
-<nav class="navbar">
-    <div class="nav-logo">徒步日記</div>
-    <ul class="nav-links">
-        <li><a href="index.html">嘿～</a></li>
-        <li><a href="map.html">足跡</a></li>
-        <li><a href="diary.html">日記</a></li>
-        <li><a href="clean.html">淨島</a></li>
-        <li><a href="blog.html">發現</a></li>
-        <li><a href="discovery.html">探索</a></li> 
-        <li><a href="about.html" class="active">介紹</a></li>
-    </ul>
+<body class="fullscreen-bg"> <nav class="navbar">
+        <div class="nav-logo">徒步日記</div>
+        <ul class="nav-links">
+            <li><a href="index.html">嘿～</a></li>
+            <li><a href="map.html">足跡</a></li>
+            <li><a href="diary.html">日記</a></li>
+            <li><a href="clean.html">淨島</a></li>
+            <li><a href="blog.html">發現</a></li>
+            <li><a href="discovery.html">探索</a></li> 
+            <li><a href="about.html" class="active">介紹</a></li>
+        </ul>
     </nav>
 
-    <div class="container">
-    <section class="intro-section">
-        <div class="intro-text">
-            <h1>關於我</h1>
-            <p>
-                你好！我是一個熱愛步行的旅人。在 2026 年的這場環島徒步中，我不僅是為了看見台灣的風景，更是為了透過開發這個網站，紀錄每一刻的感動與挑戰。
-            </p>
-            <p>
-                從非科班到投入 Java 開發，這趟旅程就像徒步一樣，雖然緩慢但每一步都算數。歡迎透過這個空間，參與我的環島冒險。
-            </p>
-        </div>
-        <div class="intro-image">
-            <img src="../pic/me.jpg" alt="我的照片">
-        </div>
-    </section>
+    <main class="container">
+        <section class="intro-section">
+            <div class="intro-text">
+                <span class="subtitle">ABOUT ME</span>
+                <h1>關於我，與這趟旅程</h1>
+                <div class="bio-content">
+                    <p>你好！我是一個熱愛步行的旅人。在 2026 年的這場環島徒步中，我不僅是為了看見台灣的風景，更是為了透過開發這個網站，紀錄每一刻的感動與挑戰。</p>
+                    <p>這趟旅程對我而言具有特殊的意義。我希望透過每一步的累積，重新定義自己與土地的連結。從非科班背景投入 Java 開發，這條路就像徒步環島一樣：起頭總是艱難，但只要不停止擺動雙腳，終點就在前方。</p>
+                    <p>在這裡，你會看到我對環境的堅持、對台灣文化的熱愛，以及一個工程師初學者如何用程式碼編織出屬於自己的環島地圖。歡迎透過這個空間，參與我的冒險。</p>
+                </div>
+            </div>
+            <div class="intro-image">
+                <div class="photo-frame">
+                    <img src="../pic/me.jpg" alt="我的照片">
+                </div>
+            </div>
+        </section>
 
-    <div class="challenges-header">環島挑戰目標</div>
+        <div class="challenges-header">
+            <h2>環島挑戰目標</h2>
+            <p>點擊圖示了解我的初衷</p>
+        </div>
 
-    <section class="challenges-grid">
-        <div class="challenge-card">
-            <div class="circle">🍴</div>
-            <p>自備餐具減塑</p>
-        </div>
-        <div class="challenge-card">
-            <div class="circle">🇹🇼</div>
-            <p>介紹台灣觀光</p>
-        </div>
-        <div class="challenge-card">
-            <div class="circle">💻</div>
-            <p>每日更新網站</p>
-        </div>
-        <div class="challenge-card">
-            <div class="circle">🏃</div>
-            <p>自我體能挑戰</p>
-        </div>
-    </section>
-</div>
+        <section class="challenges-grid">
+            <div class="challenge-card" data-title="自備餐具減塑" data-content="在長途旅行中，最容易產生大量的一次性餐具垃圾。我希望透過實踐，證明徒步也能很環保。目標是全程使用個人餐具，並在行進間隨手撿拾垃圾，守護台灣的美麗。">
+                <div class="circle">🍴</div>
+                <p>自備餐具減塑</p>
+            </div>
+            <div class="challenge-card" data-title="介紹台灣觀光" data-content="台灣有很多角落值得被看見。我不只走馬看花，更想透過文字紀錄當地的歷史故事與文化特色，讓更多人看見這片土地深厚的底蘊。">
+                <div class="circle">🇹🇼</div>
+                <p>介紹台灣觀光</p>
+            </div>
+            <div class="challenge-card" data-title="每日更新網站" data-content="作為 Java 開發的練習，我要求自己每天更新日記內容與程式邏輯。這不僅是紀錄旅程，更是對自己技術成長的磨練與承諾。">
+                <div class="circle">💻</div>
+                <p>每日更新網站</p>
+            </div>
+            <div class="challenge-card" data-title="自我體能挑戰" data-content="環島徒步是對意志與體力的極致考驗。我希望透過每天 20-30 公里的移動，重新找回對身體的掌控感，並磨練出更堅韌的心志。">
+                <div class="circle">🏃</div>
+                <p>自我體能挑戰</p>
+            </div>
+        </section>
+        <section class="journal-section">
+            <div class="journal-header">
+                <h2>旅途札記</h2>
+                <p>那些關於路上的故事，不只是行走，更是與自己的對話。</p>
+            </div>
+            <div class="journal-grid">
+                <a href="aboutpost.html" class="journal-card">
+                    <div class="card-img" style="background-image: url('../pic/post1.jpg');"></div>
+                    <div class="card-body">
+                        <span class="card-date">2026.03.15</span>
+                        <h3>第一雙磨破的鞋</h3>
+                        <p>徒步走過彰化的田野，這雙陪我訓練三個月的鞋終於在今天宣告退役...</p>
+                        <span class="read-more">閱讀全文 →</span>
+                    </div>
+                </a>
 
+                <a href="aboutpost.html" class="journal-card">
+                    <div class="card-img" style="background-image: url('../pic/post2.jpg');"></div>
+                    <div class="card-body">
+                        <span class="card-date">2026.03.20</span>
+                        <h3>雨中的西濱公路</h3>
+                        <p>淋雨濕透全身的滋味並不好受，但在這段孤獨的路上，我學會了如何與雨共存...</p>
+                        <span class="read-more">閱讀全文 →</span>
+                    </div>
+                </a>
+
+                <a href="aboutpost.html" class="journal-card">
+                    <div class="card-img" style="background-image: url('../pic/post3.jpg');"></div>
+                    <div class="card-body">
+                        <span class="card-date">2026.03.28</span>
+                        <h3>在村落遇見的溫暖</h3>
+                        <p>路邊阿嬤塞過來的一顆紅豆餅，是我這幾天吃到最奢華的美味...</p>
+                        <span class="read-more">閱讀全文 →</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <div id="challenge-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="modal-title">標題</h3>
+            <div class="modal-divider"></div>
+            <p id="modal-text">內容詳情</p>
+        </div>
+    </div>
+
+    
+
+    <script src="../js/about.js"></script>
 </body>
 </html>

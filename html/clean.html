@@ -1,4 +1,3 @@
-<!-- 每日撿垃圾紀錄 -->
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -9,8 +8,7 @@
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/clean.css">
 </head>
-<body>
-
+<body class="fullscreen-bg">
 <nav class="navbar">
     <div class="nav-logo">徒步日記</div>
     <ul class="nav-links">
@@ -22,45 +20,49 @@
         <li><a href="discovery.html">探索</a></li> 
         <li><a href="about.html">介紹</a></li>
     </ul>
-    </nav>
+</nav>
 
 <div class="container">
-    <header class="hero-section">
-        <h3>路上的垃圾，我帶走囉！</h3>
-        <p>每一件被撿起的垃圾，都是一片修復台灣風景的碎片。</p>
-        
-        <div class="stats-board">
-            <div class="stat-item">
-                <span class="stat-value" id="total-count">0</span>
-                <span class="stat-label">已收集碎片</span>
+    <h1 class="clean-title">淨島中</h1>
+    <div class="dashboard-wrapper">
+        <div class="stats-side">
+            <div class="stat-box-mini">
+                <span class="stat-label">總重量</span>
+                <div class="stat-value"><span id="weight-count">0</span><small>g</small></div>
             </div>
-            <div class="stat-item">
-                <span class="stat-value" id="weight-count">0</span>
-                <span class="stat-label">估計重量 (g)</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-value" id="day-count">0</span>
-                <span class="stat-label">戰鬥天數</span>
+            <div class="stat-box-mini">
+                <span class="stat-label">累積天數</span>
+                <div class="stat-value" id="day-count">0</div>
             </div>
         </div>
-    </header>
-
-    <div class="charts-container">
-        <div class="chart-box">
-            <h3>碎片種類比例</h3>
-            <canvas id="typeChart"></canvas>
-        </div>
-        <div class="chart-box">
-            <h3>修復進度 (重量趨勢)</h3>
-            <canvas id="trendChart"></canvas>
+        <div class="chart-main">
+            <div class="canvas-container"><canvas id="trendChart"></canvas></div>
         </div>
     </div>
 
-    <main class="cleanup-grid" id="cleanup-log">
-        </main>
+    <div class="clean-slogan">
+        <p class="slogan-main">我知道，拾起一片垃圾、減少一個塑膠袋都不會改變世界</p>
+        <p class="slogan-sub">但我知道，每一個選擇，都是我願意為這個世界付出的多一點點美好</p>
+    </div>
+
+    <div class="log-section">
+        <div class="log-header"><h2>拾荒紀錄日誌</h2></div>
+        <div id="cleanup-log"></div>
+    </div>
 </div>
 
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <img id="modal-img" src="">
+        <div class="modal-info">
+            <h3 id="modal-location"></h3>
+            <p id="modal-date" style="color:#888; font-size:0.9rem;"></p>
+            <div id="modal-tags"></div>
+            <p id="modal-desc" style="margin-top:15px; line-height:1.6;"></p>
+        </div>
+    </div>
+</div>
 <script src="../js/clean.js"></script>
-
 </body>
 </html>

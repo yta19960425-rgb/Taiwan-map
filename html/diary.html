@@ -1,79 +1,75 @@
-<!-- 日記：圖片＋文字 -->
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>路上的我會...</title>
+    <title>徒步日記 - 路上的我會...</title>
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/diary.css">
-    
-
 </head>
-<body>
-    
-<nav class="navbar">
-    <div class="nav-logo">徒步日記</div>
-    <ul class="nav-links">
-        <li><a href="index.html">嘿～</a></li>
-        <li><a href="map.html">足跡</a></li>
-        <li><a href="diary.html" class="active">日記</a></li>
-        <li><a href="clean.html">淨島</a></li>
-        <li><a href="blog.html">發現</a></li>
-        <li><a href="discovery.html">探索</a></li> 
-        <li><a href="about.html">介紹</a></li>
-    </ul>
+<body class="fullscreen-bg"> <nav class="navbar">
+        <div class="nav-logo">徒步日記</div>
+        <ul class="nav-links">
+            <li><a href="index.html">嘿～</a></li>
+            <li><a href="map.html">足跡</a></li>
+            <li><a href="diary.html" class="active">日記</a></li>
+            <li><a href="clean.html">淨島</a></li>
+            <li><a href="blog.html">發現</a></li>
+            <li><a href="discovery.html">探索</a></li> 
+            <li><a href="about.html">介紹</a></li>
+        </ul>
     </nav>
-    
 
-
-<div class="diary-container">
-    <h1 class="diary-title">徒步日記</h1>
-    <div class="diary-columns">
-        <div class="column">
-            <ul>
-                <li>路上的我會……</li>
-                <li>邊走邊認識台灣的故事、歷史</li>
-                <li>邊走邊聽一些路上的故事、收集一些微笑</li>
-                <li>邊走邊練習我們的語言—台語</li>
-                <li>邊走邊環保，使用自己的餐具、隨手撿起些垃圾</li>
-                <li>邊走邊拍些照片，一些屬於台灣的特色</li>
-                <li>還有，我每天會更新我的徒步日記，歡迎每天回來看看</li>
-            </ul>
+    <div class="container-content">
+        <div class="diary-container">
+            <h1 class="diary-title">徒步日記</h1>
+            <div class="diary-columns">
+                <div class="column">
+                    <ul>
+                        <li>路上的我會……</li>
+                        <li>邊走邊認識台灣的故事、歷史</li>
+                        <li>邊走邊聽一些路上的故事、收集一些微笑</li>
+                        <li>邊走邊練習我們的語言—台語</li>
+                        <li>邊走邊環保，使用自己的餐具、隨手撿起些垃圾</li>
+                        <li>邊走邊拍些照片，一些屬於台灣的特色</li>
+                        <li>還有，我每天會更新我的徒步日記，歡迎每天回來看看</li>
+                    </ul>
+                </div>
+                <div class="column">          
+                    <ul>
+                        <li>路仔的我會……</li>
+                        <li>跤行跤熟似台灣的故事、歷史</li>
+                        <li>跤行跤聽一寡路仔的故事、收集一寡文文仔笑</li>
+                        <li>跤行跤練習阮的言語—台語</li>
+                        <li>跤行跤環保，使用家己的食器、順手拾起一寡糞埽</li>
+                        <li>跤行跤影一寡 siá-sin，一寡屬於台灣的特色</li>
+                        <li>閣有，我逐日會更新我的徒步日記，歡迎逐日轉來看覓</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="column">          
-            <ul>
-                <li>路仔的我會……</li>
-                <li>跤行跤熟似台灣的故事、歷史</li>
-                <li>跤行跤聽一寡路仔的故事、收集一寡文文仔笑</li>
-                <li>跤行跤練習阮的言語—台語</li>
-                <li>跤行跤環保，使用家己的食器、順手拾起一寡糞埽</li>
-                <li>跤行跤影一寡 siá-sin，一寡屬於台灣的特色</li>
-                <li>閣有，我逐日會更新我的徒步日記，歡迎逐日轉來看覓</li>
-            </ul>
+
+        <div class="page-container">
+            <div class="diary-layout">
+                <aside class="date-sidebar">
+                    <ul id="date-list" class="date-menu"></ul>
+                </aside>
+                <main class="content-area">
+                    <article class="diary-card">
+                        <h2 id="view-date">載入中...</h2>
+                        <div class="diary-image-wrapper">
+                            <img id="view-photo" src="" alt="日記照片">
+                        </div>
+                        <div class="diary-body">
+                            <p id="view-text"></p>
+                        </div>
+                    </article>
+                </main>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="page-container">
-    <div class="diary-layout">
-        <aside class="date-sidebar">
-            <ul id="date-list" class="date-menu"></ul>
-        </aside>
-        <main class="content-area">
-            <article class="diary-card">
-                <h2 id="view-date">載入中...</h2>
-                <div class="diary-image-wrapper">
-                    <img id="view-photo" src="" alt="日記照片">
-                </div>
-                <div class="diary-body">
-                    <p id="view-text"></p>
-                </div>
-            </article>
-        </main>
-    </div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
-<script src="../js/diary.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="../js/diary.js"></script>
 </body>
 </html>

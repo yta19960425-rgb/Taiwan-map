@@ -5,53 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的地圖日記進度</title>
-    <link rel="stylesheet" href="../css/navbar.css">    <style>
-        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; background-color: #f4f4f4; }
-        .controls { margin: 20px; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        svg { max-width: 100%; height: auto; cursor: pointer; }
-        path { transition: fill 0.3s; }
-        path:hover { opacity: 0.8; stroke-width: 2px; }
-        h1 { color: #333; }
-        
-     
-     .progress-container {
-    position: relative;
-    width: 120px;
-    height: 120px;
-    margin: 20px auto;
-}
-
-
-/* CSS 部分 */
-.progress-container {
-    position: relative;
-    width: 120px;
-    height: 150px; /* 留一點空間給下方文字 */
-    margin: 20px auto;
-    text-align: center;
-}
-.progress-bg { stroke: #e6e6e6; }
-.progress-bar {
-    stroke: #4caf50;
-    stroke-linecap: round;
-    transition: stroke-dashoffset 0.5s ease;
-    transform: rotate(-90deg);
-    transform-origin: center;
-}
-.progress-text {
-    position: absolute;
-    top: 40%; /* 稍微往上偏一點點避開下方標籤 */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-</style>
+    <link rel="stylesheet" href="../css/navbar.css">   
+    <link rel="stylesheet" href="../css/map.css">
 
 </head>
 
-<body>
+<body class="fullscreen-bg">
  <nav class="navbar">
     <div class="nav-logo">徒步日記</div>
     <ul class="nav-links">
@@ -177,22 +136,14 @@
 </svg>
 </div>
 
-<div style="margin-top: 2cm;margin-bottom: 3cm; text-align: center;">
+<div style="margin-top: 2cm;margin-bottom: 3cm; text-align: center; color:#000;">
 <p>用我的方式，來認識台灣，用我的每一個腳步，踏踏實實走在台灣的土地上</p>
 <p>用我的方式，來熟似台灣，用我的逐个跤步，踏踏實實行佇台灣的土地頂</p>
 <p>Īng guá ê hong-sik, lâi si̍k-sāi Tâi-uân, īng guá ê ta̍k ê kha-pōo, ta̍p-ta̍p-si̍t-si̍t kiânn tī Tâi-uân ê thóo-tē tíng</p>
-<p>謝謝台灣，這三十年來的養育 | 感謝台灣，這三十年來的育飼| Kám-siā Tâi-uân, tsit sann-tsa̍p nî lâi ê io-tshī</p>
 
 </div>
 
-<div class="progress-container">
-    <svg width="120" height="120" viewBox="0 0 120 120">
-        <circle class="progress-bg" cx="60" cy="60" r="54" stroke-width="10" fill="transparent" />
-        <circle class="progress-bar" cx="60" cy="60" r="54" stroke-width="10" fill="transparent" />
-    </svg>
-    <div class="progress-text">0%</div>
-    <div style="font-size: 12px; color: #888; margin-top: 10px;">本島進度</div>
-</div>
+
 
 
 <footer style="text-align: center; padding: 20px; background-color: #eee; margin-top: 30px; width: 100%;">

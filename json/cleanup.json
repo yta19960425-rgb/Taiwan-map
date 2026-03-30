@@ -1,167 +1,102 @@
 [
-    
     {
         "date": "2026-04-17",
         "location": "花壇與大村路段",
-        "items": "菸蒂x1, 鋁罐x1, 廢棄口罩x1",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
+        "type": "紙類",
+        "items": "煙蒂x10,吸管x10,瓶蓋x10",
+        "weight": 50,
+        "img": "../pic/island.png",
+        "desc": "路邊草叢藏了好多煙蒂，雖然體積小但數量驚人。"
     },
     {
         "date": "2026-04-18",
-        "location": "花壇與大村路段",
-        "items": "菸蒂x1, 鋁罐x1, 廢棄口罩x1",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
+        "location": "彰化市區",
+        "type": "塑膠",
+        "items": "塑膠袋x5",
+        "weight": 120,
+        "img": "../pic/island.png",
+        "desc": "風大的時候，塑膠袋會隨處飄散，撿起來可以防止進入排水溝。"
     },
     {
-        "date": "2026-04-19",
-        "location": "花壇與大村路段",
-        "items": "菸蒂x1, 鋁罐x1, 廢棄口罩x1",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
+        "date": "2026-04-16",
+        "location": "彰化市區",
+        "type": "塑膠",
+        "items": "塑膠袋x5",
+        "weight": 120,
+        "img": "../pic/island.png",
+        "desc": "風大的時候，塑膠袋會隨處飄散，撿起來可以防止進入排水溝。"
     },
     {
-        "date": "2026-04-20",
-        "location": "花壇與大村路段",
-        "items": "菸蒂x1, 鋁罐x1, 廢棄口罩x1",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
-    },
-    {
-        "date": "2026-04-21",
-        "location": "花壇與大村路段",
-        "items": "菸蒂x1, 鋁罐x1, 廢棄口罩x1",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
-    },
-    {
-        "date": "2026-04-15",
-        "location": "花壇與大村路段",
-        "items": "菸蒂x1, 鋁罐x1, 廢棄口罩x1",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
-    },
-    {
-        "date": "2026-04-22",
-        "location": "花壇與大村路段",
-        "items": "菸蒂x1, 鋁罐x1, 廢棄口罩x1",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
-    },
-    {
-        "date": "2026-04-23",
-        "location": "花壇與大村路段",
-        "items": "菸蒂x1, 鋁罐x1, 廢棄口罩x1",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
+        "date": "2026-04-01",
+        "location": "員林大道",
+        "type": "保特瓶",
+        "items": "保特瓶x3",
+        "weight": 200,
+        "img": "../pic/island.png",
+        "desc": "保特瓶是很有存在感的廢棄物，撿起來後背包重了不少。"
     },
     {
         "date": "2026-04-24",
         "location": "花壇與大村路段",
-        "items": "菸蒂x1, 鋁罐x1, 廢棄口罩x1",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
+        "type": "塑膠",
+        "items": "煙蒂x10",
+        "weight": 150,
+        "img": "../pic/island.png",
+        "desc": "路邊草叢藏了好多煙蒂，雖然體積小但數量驚人。"
     },
     {
-        "date": "2026-04-25",
+        "date": "2026-04-23",
         "location": "花壇與大村路段",
-        "items": "菸蒂x1, 鋁罐x1, 廢棄口罩x1",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
+        "type": "其他",
+        "items": "煙蒂x10",
+        "weight": 170,
+        "img": "../pic/island.png",
+        "desc": "路邊草叢藏了好多煙蒂，雖然體積小但數量驚人。"
     },
     {
-        "date": "2026-04-26",
-        "location": "西螺大橋",
-        "items": "塑膠瓶x5, 菸蒂x5, 廢棄漁網x5",
-        "weight": 600,
-        "img": "https://via.placeholder.com/400x300?text=Day4"
-    },
-    {
-        "date": "2026-04-27",
+        "date": "2026-04-22",
         "location": "花壇與大村路段",
-        "items": "菸蒂x4, 鋁罐x4, 廢棄口罩x4",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
+        "type": "煙蒂",
+        "items": "煙蒂x10",
+        "weight": 150,
+        "img": "../pic/island.png",
+        "desc": "路邊草叢藏了好多煙蒂，雖然體積小但數量驚人。"
     },
     {
-        "date": "2026-04-28",
+        "date": "2026-04-21",
         "location": "花壇與大村路段",
-        "items": "菸蒂x1, 鋁罐x1, 廢棄口罩x1",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
+        "type": "紙類",
+        "items": "煙蒂x10",
+        "weight": 100,
+        "img": "../pic/island.png",
+        "desc": "路邊草叢藏了好多煙蒂，雖然體積小但數量驚人。"
     },
     {
-        "date": "2026-04-29",
+        "date": "2026-04-20",
         "location": "花壇與大村路段",
-        "items": "菸蒂x1, 鋁罐x1, 廢棄口罩x1",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
+        "type": "塑膠",
+        "items": "煙蒂x10",
+        "weight": 60,
+        "img": "../pic/island.png",
+        "desc": "路邊草叢藏了好多煙蒂，雖然體積小但數量驚人。"
     },
     {
-        "date": "2026-04-30",
+        "date": "2026-04-19",
         "location": "花壇與大村路段",
-        "items": "菸蒂x1, 鋁罐x1, 廢棄口罩x1",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
-    },
-    
-    {
-        "date": "2026-04-01",
-        "location": "花壇與大村路段",
-        "items": "菸蒂x1, 鋁罐x1, 廢棄口罩x1",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
-    },
-    {
-        "date": "2026-04-02",
-        "location": "花壇與大村路段",
-        "items": "菸蒂x1, 鋁罐x1, 廢棄口罩x1",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
+        "type": "煙蒂",
+        "items": "煙蒂x10",
+        "weight": 90,
+        "img": "../pic/island.png",
+        "desc": "路邊草叢藏了好多煙蒂，雖然體積小但數量驚人。"
     },
     {
         "date": "2026-04-03",
         "location": "花壇與大村路段",
-        "items": "菸蒂x1, 鋁罐x1, 廢棄口罩x1",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
-    },
-    {
-        "date": "2026-04-04",
-        "location": "花壇與大村路段",
-        "items": "菸蒂x1, 鋁罐x1, 廢棄口罩x1",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
-    },
-    {
-        "date": "2026-04-05",
-        "location": "花壇與大村路段",
-        "items": "菸蒂x1, 鋁罐x1, 廢棄口罩x1",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
-    },
-    {
-        "date": "2026-04-06",
-        "location": "花壇與大村路段",
-        "items": "菸蒂x1, 鋁罐x1, 廢棄口罩x1",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
-    },
-    {
-        "date": "2026-04-14",
-        "location": "西螺大橋",
-        "items": "塑膠瓶x5, 菸蒂x5, 廢棄漁網x5",
-        "weight": 600,
-        "img": "https://via.placeholder.com/400x300?text=Day4"
-    },
-    {
-        "date": "2026-04-13",
-        "location": "花壇與大村路段",
-        "items": "菸蒂x4, 鋁罐x4, 廢棄口罩x4",
-        "weight": 450,
-        "img": "https://via.placeholder.com/400x300?text=Day3"
+        "type": "煙蒂",
+        "items": "煙蒂x10",
+        "weight": 80,
+        "img": "../pic/island.png",
+        "desc": "路邊草叢藏了好多煙蒂，雖然體積小但數量驚人。"
     }
 
-    
 ]

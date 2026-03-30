@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>走在路上</title>
     <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/blog.css">
     
 </head>
 <body>
@@ -23,5 +24,26 @@
     </ul>
     </nav>
 
+    <div class="container">
+    <div class="search-wrapper">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="搜尋文章標題或內容...">
+        </div>
+    </div>
+
+    <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">全部文章</button>
+        <button class="filter-btn" data-filter="history">歷史</button>
+        <button class="filter-btn" data-filter="sightseeing">觀光</button>
+        <button class="filter-btn" data-filter="eco">環保</button>
+        <button class="filter-btn" data-filter="about">關於</button>
+    </div>
+
+    <div class="article-grid" id="articleGrid">
+        </div>
+
+    <div id="pagination" class="pagination-container"></div>
+</div>
+<script src="../js/blog.js"></script>
 </body>
 </html>

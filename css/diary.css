@@ -1,75 +1,102 @@
+/* 基本設定 */
 body {
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
-    font-family: "Microsoft JhengHei", sans-serif;
+    font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+    min-height: 100vh;
+}
+
+/* 全螢幕背景與蒙版 (與 index 相同) */
+.fullscreen-bg {
+    position: relative;
+    background-image: url('../pic/IMG_6478.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.fullscreen-bg::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.85); /* 淡化背景 */
+    z-index: 0;
+}
+
+.container-content {
+    position: relative;
+    z-index: 1; /* 確保內容在蒙版上方 */
 }
 
 /* 上方宣告區塊 */
 .diary-container {
     max-width: 1000px;
-    margin: 30px auto 10px auto;
+    margin: 80px auto 10px auto;
     padding: 20px;
 }
 
 .diary-title {
     text-align: center;
     letter-spacing: 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
     padding-bottom: 20px;
     margin-bottom: 20px;
+    color: #2c3e50;
 }
 
 .diary-columns {
     display: flex;
     justify-content: center; 
-    gap: 80px; /* 增加兩欄間距 */
+    gap: 40px;
     margin-top: 20px;
 }
 
 .column ul {
-    list-style: none; /* 移除點點 */
+    list-style: none;
     padding: 0;
     margin: 0;
-    text-align: center; /* 文字置中 */
 }
 
 .column li {
-    margin-bottom: 12px;
-    font-size: 1.1rem;
-    color: #444;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #555;
     line-height: 1.6;
 }
 
-/* 日記主區塊設定 */
+/* 日記主區塊 - 調整為更輕量化 */
 .page-container {
     display: flex;
     justify-content: center;
-    padding-bottom: 40px;
+    padding-bottom: 60px;
 }
 
 .diary-layout {
     display: flex;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.6); /* 提高透明度，讓背景透出來 */
+    backdrop-filter: blur(8px); /* 毛玻璃效果 */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* 更柔和的陰影 */
+    border: 1px solid rgba(255, 255, 255, 0.4); /* 極淺的邊框 */
+    border-radius: 24px;
     overflow: hidden;
-    width: 95%;
-    max-width: 1200px;
-    height: 75vh;
+    width: 90%;
+    max-width: 1100px;
+    height: 70vh;
 }
 
 /* 左側日期選單 */
 .date-sidebar {
-    width: 180px;
-    background: #fdfdfd;
-    border-right: 1px solid #f0f0f0;
+    width: 160px;
+    background: rgba(255, 255, 255, 0.3);
+    border-right: 1px solid rgba(0,0,0,0.05);
 }
 
 .date-menu {
-    list-style: none; /* 移除日期點點 */
+    list-style: none;
     padding: 0;
     margin: 0;
     height: 100%;
@@ -77,52 +104,47 @@ body {
 }
 
 .date-item {
-    padding: 20px 10px;
+    padding: 18px 10px;
     text-align: center;
     cursor: pointer;
-    border-bottom: 1px solid #f8f8f8;
     color: #888;
     transition: all 0.3s ease;
 }
 
 .date-item:hover {
-    background-color: #f5f5f5;
+    background-color: rgba(255, 255, 255, 0.5);
     color: #333;
 }
 
 .date-item.active {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.8);
     color: #2c3e50;
-    font-weight: 800;
-    border-left: 5px solid #333;
+    font-weight: bold;
+    border-left: 4px solid #2c3e50;
 }
 
 /* 右側內容區 */
 .content-area {
     flex: 1;
     overflow-y: auto;
-    padding: 50px 80px;
-    background: #fff;
+    padding: 40px 60px;
+    background: transparent; /* 讓內容區透明以顯現整體設計 */
 }
 
 .diary-card h2 {
-    margin: 0 0 25px 0;
-    font-size: 2.2rem;
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 15px;
+    margin: 0 0 20px 0;
+    font-size: 1.8rem;
     color: #333;
 }
 
-/* 圖片容器：沒內容時顯示背景圖 */
 .diary-image-wrapper {
     width: 100%;
-    min-height: 450px;
-    background-color: #eee;
+    min-height: 400px;
+    background-color: rgba(0,0,0,0.03);
     background-size: cover;
     background-position: center;
-    border-radius: 12px;
+    border-radius: 15px;
     margin-bottom: 25px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -130,14 +152,14 @@ body {
 
 .diary-image-wrapper img {
     width: 100%;
-    max-height: 550px;
+    max-height: 500px;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .diary-body {
-    line-height: 2;
-    font-size: 1.25rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
     color: #444;
     white-space: pre-wrap;
 }
@@ -145,10 +167,10 @@ body {
 /* 捲軸美化 */
 .date-menu::-webkit-scrollbar,
 .content-area::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
 }
 .date-menu::-webkit-scrollbar-thumb,
 .content-area::-webkit-scrollbar-thumb {
-    background-color: #ddd;
+    background-color: rgba(0,0,0,0.1);
     border-radius: 10px;
 }

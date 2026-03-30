@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章標題 - 徒步日記</title>
+    <link rel="stylesheet" href="../css/navbar.css">
+    <style>
+        /* 內頁專用簡潔 CSS */
+        body { margin: 0; font-family: "PingFang TC", sans-serif; background: #f9fbf9; color: #333; line-height: 1.8; }
+        .article-container { max-width: 800px; margin: 120px auto 80px; padding: 0 25px; }
+        .article-header { text-align: center; margin-bottom: 60px; }
+        .article-category { color: #2d5a27; font-weight: bold; font-size: 0.9rem; letter-spacing: 2px; }
+        .article-header h1 { font-size: 2.5rem; margin: 20px 0; color: #1a3a17; }
+        .article-meta { color: #999; font-size: 0.9rem; }
+        
+        .article-content { font-size: 1.1rem; color: #444; margin-bottom: 60px; }
+        .article-content p { margin-bottom: 30px; text-align: justify; }
+
+        /* 圖片網格排版 */
+        .photo-gallery { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 15px; 
+            margin: 40px 0; 
+        }
+        .photo-item { width: 100%; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .photo-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .photo-item:hover img { transform: scale(1.05); }
+        
+        /* 讓第 1, 5, 10 張圖寬度佔滿兩格，增加視覺變化 */
+        .photo-item.wide { grid-column: span 2; height: 400px; }
+        .photo-item.normal { height: 250px; }
+
+        .back-link { display: inline-block; margin-top: 40px; color: #2d5a27; text-decoration: none; font-weight: bold; border-bottom: 2px solid #2d5a27; }
+    </style>
+</head>
+<body>
+    <nav class="navbar"> </nav>
+
+    <main class="article-container">
+        <header class="article-header">
+            <span class="article-category">旅途札記</span>
+            <h1>第一雙磨破的鞋</h1>
+            <div class="article-meta">發布於 2026年3月15日 • 彰化花壇</div>
+        </header>
+
+        <section class="article-content">
+            <p>這裡開始是你的五百字內容...（第一段）</p>
+            
+            <div class="photo-gallery">
+                <div class="photo-item wide"><img src="../pic/post1_1.jpg" alt=""></div>
+                <div class="photo-item normal"><img src="../pic/post1_2.jpg" alt=""></div>
+                <div class="photo-item normal"><img src="../pic/post1_3.jpg" alt=""></div>
+                <p style="grid-column: span 2; margin: 20px 0;">這是穿插在圖片中間的感悟文字...</p>
+                <div class="photo-item normal"><img src="../pic/post1_4.jpg" alt=""></div>
+                <div class="photo-item normal"><img src="../pic/post1_5.jpg" alt=""></div>
+                <div class="photo-item wide"><img src="../pic/post1_6.jpg" alt=""></div>
+            </div>
+
+            <p>這裡繼續你的感人故事...（最後一段）</p>
+        </section>
+
+        <a href="about.html" class="back-link">← 返回關於我</a>
+    </main>
+</body>
+</html>

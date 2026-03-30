@@ -1,8 +1,31 @@
-// 可以加入一些簡單的進場動畫或點擊顯示詳細內容
-document.querySelectorAll('.challenge-item').forEach(item => {
-    item.addEventListener('click', () => {
-        const challengeName = item.querySelector('p').innerText;
-        console.log(`即將展開任務：${challengeName}`);
-        // 這裡可以連動到你之前的日記頁面或是地圖標記
+// 取得彈窗元素
+const modal = document.getElementById('challenge-modal');
+const modalTitle = document.getElementById('modal-title');
+const modalText = document.getElementById('modal-text');
+const closeBtn = document.querySelector('.close-btn');
+
+// 為每個挑戰卡片綁定點擊事件
+document.querySelectorAll('.challenge-card').forEach(card => {
+    card.addEventListener('click', () => {
+        // 從 data 屬性讀取內容
+        const title = card.getAttribute('data-title');
+        const content = card.getAttribute('data-content');
+        
+        // 設定彈窗內容並顯示
+        modalTitle.innerText = title;
+        modalText.innerText = content;
+        modal.style.display = 'block';
     });
 });
+
+// 點擊關閉按鈕
+closeBtn.onclick = () => {
+    modal.style.display = 'none';
+};
+
+// 點擊彈窗外部區域也可關閉
+window.onclick = (event) => {
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+};
