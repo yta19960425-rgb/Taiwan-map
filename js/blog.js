@@ -1,13 +1,14 @@
 let allArticles = [];
 let currentPage = 1;
-const rowsPerPage = 6;
+const rowsPerPage = 8; // 改為 8 以對應 4 欄佈局
 let currentFilter = 'all';
 let searchQuery = '';
 
-// 初始化：從 JSON 檔案抓取資料
+// 初始化：改為從您的資料夾路徑獲取文章 JSON
 async function init() {
     try {
-        const response = await fetch('data.json');
+        // 建議將資料存在 ../json/articles.json 以統一專案結構
+        const response = await fetch('../json/articles.json');
         allArticles = await response.json();
         setupEventListeners();
         render();
@@ -45,26 +46,24 @@ function render() {
         return matchesFilter && matchesSearch;
     });
 
-    // 分頁邏輯
     const start = (currentPage - 1) * rowsPerPage;
     const paginatedItems = filtered.slice(start, start + rowsPerPage);
     const totalPages = Math.ceil(filtered.length / rowsPerPage);
 
-    // 渲染 HTML
     grid.innerHTML = paginatedItems.length ? paginatedItems.map(post => `
         <div class="article-card">
             <div class="card-img">
                 <span class="category-tag">${post.categoryName}</span>
-                <img src="${post.img}" alt="${post.title}">
+                <img src="${post.img}" onerror="this.src='https://via.placeholder.com/300x200'">
             </div>
             <div class="card-content">
                 <div class="article-date">${post.date}</div>
                 <h3 class="article-title">${post.title}</h3>
                 <p class="article-desc">${post.desc}</p>
-                <a href="${post.link}" style="color:#2d5a27; font-weight:bold; text-decoration:none; margin-top:15px; font-size:14px;">閱讀更多 →</a>
+                <a href="${post.link}" class="read-more">閱讀更多 →</a>
             </div>
         </div>
-    `).join('') : '<div class="no-results">找不到符合的文章...</div>';
+    `).join('') : '<div style="grid-column: 1/-1; text-align: center; padding: 50px; color: #888;">找不到相關文章...</div>';
 
     renderPagination(totalPages);
 }
@@ -78,7 +77,11 @@ function renderPagination(totalPages) {
         const btn = document.createElement('button');
         btn.innerText = i;
         btn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
-        btn.onclick = () => { currentPage = i; render(); window.scrollTo({top: 0, behavior: 'smooth'}); };
+        btn.onclick = () => { 
+            currentPage = i; 
+            render(); 
+            window.scrollTo({top: 0, behavior: 'smooth'}); 
+        };
         container.appendChild(btn);
     }
 }

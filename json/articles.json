@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "category": "history",
+    "categoryName": "歷史",
+    "title": "鹿港古道的時光隧道",
+    "date": "2026-03-25",
+    "desc": "漫步在鹿港紅磚巷弄...",
+    "img": "../pic/post_01.jpg", 
+    "link": "blogpost.html?id=1",
+    "content": "<h3>鹿港的過往與現在</h3><p>這裡寫入詳細的文章內容...</p>"
+  },
+  {
+    "id": 2,
+    "category": "history",
+    "categoryName": "歷史",
+    "title": "鹿港古道的時光隧道",
+    "date": "2026-03-26",
+    "desc": "漫步在鹿港紅磚巷弄...",
+    "img": "../pic/post_01.jpg", 
+    "link": "blogpost.html?id=2",
+    "content": "<h3>鹿港的過往與現在</h3><p>這裡寫入詳細的文章內容...</p>"
+  }
+]

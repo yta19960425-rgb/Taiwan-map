@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章內容 - 徒步日記</title>
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/blog.css"> 
+    <style>
+        .post-container {
+            position: relative; z-index: 1;
+            max-width: 800px; margin: 100px auto 50px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 50px; border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .post-header { border-bottom: 1px solid #eee; margin-bottom: 30px; padding-bottom: 20px; }
+        .post-category { color: #2d5a27; font-weight: bold; font-size: 14px; }
+        .post-title { font-size: 32px; color: #333; margin: 10px 0; }
+        .post-date { color: #888; font-size: 14px; }
+        .post-main-img { width: 100%; height: auto; max-height: 400px; object-fit: cover; border-radius: 10px; margin-bottom: 30px; }
+        .post-body { line-height: 1.8; color: #444; font-size: 17px; }
+        .back-btn { display: inline-block; margin-top: 30px; color: #2d5a27; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body class="fullscreen-bg">
+    <nav class="navbar">
+        <div class="nav-logo">徒步日記</div>
+        <ul class="nav-links">
+            <li><a href="index.html">嘿～</a></li>
+            <li><a href="map.html">足跡</a></li>
+            <li><a href="diary.html">日記</a></li>
+            <li><a href="clean.html">淨島</a></li>
+            <li><a href="blog.html" class="active">發現</a></li>
+            <li><a href="discovery.html">探索</a></li> 
+            <li><a href="about.html">介紹</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <article class="post-container" id="postDetail">
+            <p style="text-align:center;">內容讀取中...</p>
+        </article>
+    </div>
+
+    <script>
+        async function loadPost() {
+            // 1. 從網址取得 ID
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = urlParams.get('id');
+
+            try {
+                // 2. 抓取 JSON
+                const response = await fetch('../json/articles.json');
+                const articles = await response.json();
+
+                // 3. 找對應的文章
+                const post = articles.find(a => a.id == postId);
+
+                if (post) {
+                    document.title = `${post.title} - 徒步日記`;
+                    document.getElementById('postDetail').innerHTML = `
+                        <div class="post-header">
+                            <span class="post-category">${post.categoryName}</span>
+                            <h1 class="post-title">${post.title}</h1>
+                            <span class="post-date">發布日期：${post.date}</span>
+                        </div>
+                        <img src="${post.img}" class="post-main-img" onerror="this.style.display='none'">
+                        <div class="post-body">${post.content}</div>
+                        <a href="blog.html" class="back-btn">← 返回文章列表</a>
+                    `;
+                } else {
+                    document.getElementById('postDetail').innerHTML = "<h2>找不到文章</h2><a href='blog.html'>返回列表</a>";
+                }
+            } catch (error) {
+                console.error("載入出錯:", error);
+                document.getElementById('postDetail').innerHTML = "<h2>系統載入失敗</h2>";
+            }
+        }
+        window.onload = loadPost;
+    </script>
+</body>
+</html>
